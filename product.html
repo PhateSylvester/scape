@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scape Product</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <section class="prosec">
+        <nav class="pronav">
+            <div class="fstdiv">
+                <a href="index.html">S C A P E</a>
+            </div>
+            
+            <div class="trddiv">
+                <div class="snddiv">
+                <input type="text" placeholder="Search products..." id="searchInput">
+                <button><img src="iconsearch.png" height="20px"></button>
+            </div>
+                <button title="filter" type="button" class="filterbtn"><img src="icons8-filter-48.png" height="25px"></button>
+                <button title="favorites" type="button" class="favbtn"><img src="icons8-favorite-50.png" height="25px"></button>
+                <button title="carts" type="button" class="cartbtn"><img src="icons8-cart-50.png" height="25px"></button>
+                <button title="profile" type="button" class="contactbtn"><img src="contact.png" height="25px"></button>
+            </div>
+        </nav>
+        <div class="data-container" id="dataContainer"></div>
+    </section>
+
+    <script>
+        // Function to fetch data from the API
+        async function fetchData() {
+            const apiUrl = 'https://fakestoreapi.com/products';
+            const dataContainer = document.getElementById('dataContainer');
+
+            try {
+                // Clear previous data
+                dataContainer.innerHTML = '<img class="prodimg" src="./icons8-loading (1).gif">';
+
+                // Fetch data from the API
+                const response = await fetch(apiUrl);
+
+                // Check if the response is successful
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                // Parse the JSON data
+                const data = await response.json();
+
+                // Clear the loading message
+                dataContainer.innerHTML = '';
+
+                // Display the data on the webpage
+                data.slice(0, 22).forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'data-item';
+                    div.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}">
+                        <h3>${item.title}</h3>
+                        <p>Price: &#8358;${item.price}</p>
+                        <p><b><i>Rating: ${item.rating.rate}<b><i></p>
+                    `;
+                    dataContainer.appendChild(div);
+                });
+            } catch (error) {
+                // Handle errors
+                dataContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        }
+        fetchData();
+    </script>
+</body>
+</html>
