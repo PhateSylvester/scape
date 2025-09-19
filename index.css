@@ -218,7 +218,7 @@ header {
 .logbodys {
     display: none;
 }
-.logbod {
+.log {
     background-color: var(--primary-color);
 }
 .logbods {
@@ -1237,7 +1237,7 @@ grid-template-columns: repeat(2, 1fr);
 grid-template-columns: repeat(3, 1fr);
     }
 }
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .navbar {
         display: none;
     }
@@ -1255,11 +1255,11 @@ grid-template-columns: repeat(3, 1fr);
         font-weight: 500;
     }
     .data-containers {
-    display: grid;
-    grid-template-columns: repeat(2 , 1fr);
-    gap: 20px;
-    padding: 20px;
-    width: 140%;
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        gap: 20px;
+        padding: 20px;
+        width: 140%;
     }
     .data-items {
         background-color: var(--secondary-color);
@@ -1412,9 +1412,6 @@ grid-template-columns: repeat(3, 1fr);
     margin: 4px 0;
     transition: 0.3s;
     }
-    .logbod {
-        height: 123vh;
-    }
     .divcont {
         display: none;
     }
@@ -1433,56 +1430,62 @@ grid-template-columns: repeat(3, 1fr);
     .divconts {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
         align-items: center;
         font-weight: bold;
         color: var(--text-light);
         font-style: italic;
         position: relative;
-        bottom: 100px;
+        bottom: 30px;
+        font-size: 1.2rem;
     }
     .logdivs h1 {
         color: var(--secondary-color);
         font-weight: bold;
-        margin: 30px auto;
-        font-size: 2.4rem;
+        /* margin: 30px 0; */
+        font-size: 2.1rem;
         text-align: center;
+        position: relative;
+        top: 50px;
     }
     .logcon {
         width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     .dash {
         display: flex;
         color: var(--text-light);
         font-size: 1.2rem;
         font-weight: bold;
+        box-shadow: inset 0 0 10px gray;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+        top: 50px;
     }
     .loginform {
+        /* padding: 15px;
         box-shadow: inset 0 0 10px white;
+        border-radius: 10px; */
         width: 100%;
-        padding: 15px;
-        border-radius: 10px;
         position: relative;
-        bottom: 120px;
+        bottom: 50px;
     }
     .formdiv {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         gap: 10px;
     }
     .formdiv input {
         width: 95%;
-        padding: 8px 0;
+        padding: 7px 0;
     }
     .formdiv label {
         font-weight: bold;
         position: relative;
-        right: 40px;
+        right: 50px;
         font-size: 1.4rem;
     }
     .me {
@@ -1491,13 +1494,13 @@ grid-template-columns: repeat(3, 1fr);
         display: flex;
         gap: 10px;
         align-items: center;
-        margin-right: 170px;
+        margin-right: 200px;
         margin-top: 10px;
     }
     .formbtn button {
         padding: 7px 17px;
         font-weight: bold;
-        margin-right: 95px;
+        margin-right: 110px;
         font-size: 20px;
     }
     .register {
@@ -1507,7 +1510,7 @@ grid-template-columns: repeat(3, 1fr);
         width: 100%;
     }
     .register a {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
     .signcon {
         display: none;
@@ -1516,7 +1519,7 @@ grid-template-columns: repeat(3, 1fr);
         display: flex;
         color: var(--secondary-color);
         align-items: center;
-        margin: 0 auto;
+        /* margin: 0 auto; */
         font-size: 2.3rem;
         position: relative;
         top: 30px;
@@ -1531,12 +1534,9 @@ grid-template-columns: repeat(3, 1fr);
         width: 100%;
         position: relative;
         bottom: 5px;
-        box-shadow: inset 0 0 10px white;
-        border-radius: 10px;
+        /* box-shadow: inset 0 0 10px white;
+        border-radius: 10px; */
         padding: 15px;
-    }
-    .logbod {
-        height: 115vh;
     }
     .terms {
         display: flex;
@@ -1544,7 +1544,7 @@ grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
     .signbtn {
-        margin: 0 auto;
+        margin: 20px auto;
         border-radius: 5px;
     }
     .logbods {
