@@ -6,68 +6,747 @@
     <title>Scape Product</title>
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body class="prob">
     <section class="prosec">
         <nav class="pronav">
             <div class="fstdiv">
-                <a href="index.html">S C A P E</a>
+                <a href="index.html" id="homeLink">S C A P E</a>
             </div>
-            
+           
             <div class="trddiv">
                 <div class="snddiv">
-                <input type="text" placeholder="Search products..." id="searchInput">
-                <button><img src="iconsearch.png" height="20px"></button>
-            </div>
-                <button title="filter" type="button" class="filterbtn"><img src="icons8-filter-48.png" height="25px"></button>
-                <button title="favorites" type="button" class="favbtn"><img src="icons8-favorite-50.png" height="25px"></button>
-                <button title="carts" type="button" class="cartbtn"><img src="icons8-cart-50.png" height="25px"></button>
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTEiIHI9IjgiPjwvY2lyY2xlPjxsaW5lIHgxPSIyMSIgeTE9IjIxIiB4Mj0iMTYuNjUiIHkyPSIxNi42NSI+PC9saW5lPjwvc3ZnPg==" height="20px"></button>
+                </div>
+                <button title="carts" type="button" class="cartbtn" id="cartBtn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI4IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjkiIGN5PSIyMSIgcj0iMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMSIgcj0iMSI+PC9jaXJjbGU+PHBhdGggZD0iTTEgMWg0bDIuNjggMTMuMzlhMiAyIDAgMCAwIDIgMS42MWg5LjcyYTIgMiAwIDAgMCAyLTEuNjFMMjMgNkg2Ij48L3BhdGg+PC9zdmc+" height="40px">
+                    <span class="count-badge" id="cartCount">0</span>
+                </button>
+                <button title="filter" type="button" class="filterbtn" id="filterBtn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saU5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMjIgMyAyIDEwIDE0IDEwIDEwIDIyIDggMTAgMiAxMCA2IDMgMjIgMyI+PC9wb2x5Z29uPjwvc3ZnPg==" height="25px">
+                </button>
+                <button title="favorites" type="button" class="favbtn" id="favoritesBtn">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yMC44NCA0LjYxYTUuNSA1LjUgMCAwIDAtNy43OCAwTDEyIDUuNjdsLTEuMDYtMS4wNmE1LjUgNS41IDAgMCAwLTcuNzggNy43OGwxLjA2IDEuMDZMMTIgMjEuMjNsOC43OC04Ljc4IDEuMDYtMS4wNmE1LjUgNS41IDAgMCAwIDAtNy43OFoiPjwvcGF0aD48L3N2Zz4=" height="25px">
+                    <span class="count-badge" id="favoritesCount">0</span>
+                </button>
                 <button title="profile" type="button" class="contactbtn"><img src="contact.png" height="25px"></button>
             </div>
         </nav>
-        <div class="data-container" id="dataContainer"></div>
+        
+        <!-- Products Page -->
+        <div class="page-section active" id="productsPage">
+            <div class="data-container" id="dataContainer"></div>
+        </div>
+        
+        <!-- Favorites Page -->
+        <div class="page-section" id="favoritesPage">
+            <h2 style="padding: 20px; text-align: center;"><a title="continue shopping" class="fav" href="product.html">FAVORITES</a></h2>
+            <div class="favorites-container" id="favoritesContainer"></div>
+        </div>
+        
+        <!-- Checkout Page -->
+        <div class="page-section" id="checkoutPage">
+            <div class="checkout-page">
+                <h1 style="text-align: center; margin-bottom: 30px;">CHECKOUT</h1>
+                
+                <div class="checkout-grid">
+                    <div class="checkout-left">
+                        <div class="checkout-section">
+                            <h2>Shipping Information</h2>
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Shipping Address</label>
+                                <input type="text" id="address" placeholder="Enter your address">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" placeholder="Enter your city">
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">ZIP Code</label>
+                                <input type="text" id="zipCode" placeholder="Enter your ZIP code">
+                            </div>
+                        </div>
+                        
+                        <div class="checkout-section">
+                            <h2>Shipping Method</h2>
+                            <div class="shipping-options">
+                                <label class="shipping-option selected">
+                                    <input type="radio" name="shipping" value="standard" checked>
+                                    <div>
+                                        <div>Standard Shipping</div>
+                                        <div style="font-size: 0.9rem; color: #666;">5-7 business days</div>
+                                    </div>
+                                    <div style="margin-left: auto;">₦1,200</div>
+                                </label>
+                                <label class="shipping-option">
+                                    <input type="radio" name="shipping" value="express">
+                                    <div>
+                                        <div>Express Shipping</div>
+                                        <div style="font-size: 0.9rem; color: #666;">2-3 business days</div>
+                                    </div>
+                                    <div style="margin-left: auto;">₦2,500</div>
+                                </label>
+                                <label class="shipping-option">
+                                    <input type="radio" name="shipping" value="priority">
+                                    <div>
+                                        <div>Priority Shipping</div>
+                                        <div style="font-size: 0.9rem; color: #666;">1 business day</div>
+                                    </div>
+                                    <div style="margin-left: auto;">₦4,000</div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="checkout-section">
+                            <h2>Payment Method</h2>
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="Enter card number">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" placeholder="Enter name on card">
+                            </div>
+                            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-right">
+                        <div class="checkout-summary">
+                            <h2>Order Summary</h2>
+                            <div id="checkoutItems">
+                                <!-- Cart items will be inserted here -->
+                            </div>
+                            
+                            <div class="summary-item">
+                                <span>Subtotal</span>
+                                <span id="subtotalAmount">₦0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Shipping</span>
+                                <span id="shippingAmount">₦0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Tax</span>
+                                <span id="taxAmount">₦0.00</span>
+                            </div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span id="totalAmount">₦0.00</span>
+                            </div>
+                            
+                            <div class="checkout-actions">
+                                <button class="continue-shopping" id="continueShopping">Continue Shopping</button>
+                                <button class="complete-purchase" id="placeOrder">Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Filter Modal -->
+        <div class="modal" id="filterModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Filter Products</h2>
+                    <button class="close-btn" id="closeFilter">&times;</button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="categoryFilter">Category</label>
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="men's clothing">Men's Clothing</option>
+                            <option value="women's clothing">Women's Clothing</option>
+                            <option value="jewelery">Jewelery</option>
+                            <option value="electronics">Electronics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="priceFilter">Price Range</label>
+                        <div class="price-range">
+                            <input type="range" id="priceFilter" min="0" max="1000" step="10" value="1000">
+                            <span id="priceValue">₦0 - ₦500,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="ratingFilter">Minimum Rating</label>
+                        <select id="ratingFilter">
+                            <option value="0">Any Rating</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="3">3+ Stars</option>
+                            <option value="2">2+ Stars</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sortBy">Sort By</label>
+                        <select id="sortBy">
+                            <option value="default">Default</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating">Rating: Highest First</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="reset-filters" id="resetFilters">Reset Filters</button>
+                    <button class="apply-filters" id="applyFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script>
+        // State management
+        let products = [];
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentFilters = {
+            category: 'all',
+            price: 1000,
+            rating: 0,
+            sort: 'default'
+        };
+        
+        // DOM Elements
+        const dataContainer = document.getElementById('dataContainer');
+        const favoritesContainer = document.getElementById('favoritesContainer');
+        const checkoutItems = document.getElementById('checkoutItems');
+        const subtotalAmount = document.getElementById('subtotalAmount');
+        const shippingAmount = document.getElementById('shippingAmount');
+        const taxAmount = document.getElementById('taxAmount');
+        const totalAmount = document.getElementById('totalAmount');
+        const filterModal = document.getElementById('filterModal');
+        const favoritesCount = document.getElementById('favoritesCount');
+        const cartCount = document.getElementById('cartCount');
+        const favoritesBtn = document.getElementById('favoritesBtn');
+        const cartBtn = document.getElementById('cartBtn');
+        const filterBtn = document.getElementById('filterBtn');
+        const homeLink = document.getElementById('homeLink');
+        const closeFilter = document.getElementById('closeFilter');
+        const continueShopping = document.getElementById('continueShopping');
+        const placeOrder = document.getElementById('placeOrder');
+        const productsPage = document.getElementById('productsPage');
+        const favoritesPage = document.getElementById('favoritesPage');
+        const checkoutPage = document.getElementById('checkoutPage');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const priceValue = document.getElementById('priceValue');
+        const ratingFilter = document.getElementById('ratingFilter');
+        const sortBy = document.getElementById('sortBy');
+        const applyFilters = document.getElementById('applyFilters');
+        const resetFilters = document.getElementById('resetFilters');
+        const searchInput = document.getElementById('searchInput');
+        const shippingOptions = document.querySelectorAll('input[name="shipping"]');
+        
+        // Shipping costs
+        const shippingCosts = {
+            standard: 1200,
+            express: 2500,
+            priority: 4000
+        };
+        
         // Function to fetch data from the API
         async function fetchData() {
             const apiUrl = 'https://fakestoreapi.com/products';
-            const dataContainer = document.getElementById('dataContainer');
-
+            
             try {
-                // Clear previous data
-                dataContainer.innerHTML = '<img class="prodimg" src="./icons8-loading (1).gif">';
-
+                // Show loading message
+                dataContainer.innerHTML = `
+                    <div class="loader">
+                        <div class="spinner"></div>
+                        <p>SCAPE is processing...</p>
+                    </div>
+                `;
+                
                 // Fetch data from the API
                 const response = await fetch(apiUrl);
-
+                
                 // Check if the response is successful
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-
+                
                 // Parse the JSON data
-                const data = await response.json();
-
+                products = await response.json();
+                
                 // Clear the loading message
                 dataContainer.innerHTML = '';
-
+                
                 // Display the data on the webpage
-                data.slice(0, 22).forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'data-item';
-                    div.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <h3>${item.title}</h3>
-                        <p>Price: &#8358;${item.price}</p>
-                        <p><b><i>Rating: ${item.rating.rate}<b><i></p>
-                    `;
-                    dataContainer.appendChild(div);
-                });
+                applyCurrentFilters();
+                
+                // Update badge counts
+                updateBadgeCounts();
+                
             } catch (error) {
                 // Handle errors
-                dataContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                dataContainer.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">Error: ${error.message}</p>`;
             }
         }
+        
+        // Apply current filters to products
+        function applyCurrentFilters() {
+            let filteredProducts = [...products];
+            
+            // Apply category filter
+            if (currentFilters.category !== 'all') {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.category === currentFilters.category
+                );
+            }
+            
+            // Apply price filter
+            filteredProducts = filteredProducts.filter(product => 
+                product.price <= currentFilters.price
+            );
+            
+            // Apply rating filter
+            if (currentFilters.rating > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.rating.rate >= currentFilters.rating
+                );
+            }
+            
+            // Apply sorting
+            switch(currentFilters.sort) {
+                case 'price-asc':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    filteredProducts.sort((a, b) => b.rating.rate - a.rating.rate);
+                    break;
+                default:
+                    // Default sorting (no change)
+                    break;
+            }
+            
+            // Display filtered products
+            displayProducts(filteredProducts);
+        }
+        
+        // Display products in the container
+        function displayProducts(productsToDisplay) {
+            dataContainer.innerHTML = '';
+            
+            if (productsToDisplay.length === 0) {
+                dataContainer.innerHTML = '<div class="empty-message">No products found matching your criteria.</div>';
+                return;
+            }
+            
+            productsToDisplay.forEach(item => {
+                const isFavorite = favorites.some(fav => fav.id === item.id);
+                const div = document.createElement('div');
+                div.className = 'data-item';
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <h3>${item.title}</h3>
+                    <p class="price">Price: ₦${(item.price * 20).toFixed(2)}</p>
+                    <div class="item-actions">
+                        <button class="fav-btn ${isFavorite ? 'active' : ''}" data-id="${item.id}">
+                            ${isFavorite ? '❤️' : '♡'}
+                        </button>
+                        <button class="cart-btn" data-id="${item.id}">Add to Cart</button>
+                    </div>`
+                dataContainer.appendChild(div);
+            });
+            
+            // Add event listeners to the buttons
+            document.querySelectorAll('.fav-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    toggleFavorite(productId);
+                });
+            });
+            
+            document.querySelectorAll('.cart-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+        }
+        
+        // Toggle favorite status
+        function toggleFavorite(productId) {
+            const product = products.find(p => p.id === productId);
+            const index = favorites.findIndex(fav => fav.id === productId);
+            
+            if (index === -1) {
+                // Add to favorites
+                favorites.push(product);
+            } else {
+                // Remove from favorites
+                favorites.splice(index, 1);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            
+            // Update UI
+            updateBadgeCounts();
+            applyCurrentFilters();
+            displayFavorites();
+        }
+        
+        // Add product to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateBadgeCounts();
+            
+            // Show notification
+            showNotification(`${product.title.substring(0, 30)}... added to cart!`);
+        }
+        
+        // Update product quantity in cart
+        function updateCartQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    // Remove item if quantity is 0
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Update UI
+                updateBadgeCounts();
+                displayCheckoutItems();
+            }
+        }
+        
+        // Remove product from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateBadgeCounts();
+            displayCheckoutItems();
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = '#4a6cf7';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '1000';
+            notification.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+        
+        // Update badge counts
+        function updateBadgeCounts() {
+            favoritesCount.textContent = favorites.length;
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+        }
+        
+        // Display favorites
+        function displayFavorites() {
+            favoritesContainer.innerHTML = '';
+            
+            if (favorites.length === 0) {
+                favoritesContainer.innerHTML = '<div class="empty-message">You have no favorites yet. <a href="product.html">Pick  FAVORITE  items ?</a></div>';
+                return;
+            }
+            
+            favorites.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'data-item';
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <h3>${item.title}</h3>
+                    <p class="price">Price: ₦${(item.price * 500).toFixed(2)}</p>
+                    <p><b><i>Rating: ${item.rating.rate} (${item.rating.count})<b><i></p>
+                    <div class="item-actions">
+                        <button class="fav-btn active" data-id="${item.id}">❤️</button>
+                        <button class="cart-btn" data-id="${item.id}">Add to Cart</button>
+                    </div>
+                `;
+                favoritesContainer.appendChild(div);
+            });
+            
+            // Add event listeners to the buttons
+            document.querySelectorAll('.fav-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    toggleFavorite(productId);
+                });
+            });
+            
+            document.querySelectorAll('.cart-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+        }
+        
+        // Display checkout items and calculate totals
+        function displayCheckoutItems() {
+            checkoutItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                checkoutItems.innerHTML = '<div class="empty-message">Your cart is empty.</div>';
+                subtotalAmount.textContent = '₦0.00';
+                shippingAmount.textContent = '₦0.00';
+                taxAmount.textContent = '₦0.00';
+                totalAmount.textContent = '₦0.00';
+                return;
+            }
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity * 500;
+                subtotal += itemTotal;
+                
+                const div = document.createElement('div');
+                div.className = 'checkout-item';
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="checkout-item-details">
+                        <h4>${item.title.substring(0, 40)}...</h4>
+                        <p>₦${(item.price * 500).toFixed(2)}</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
+                        <span class="remove-btn" onclick="removeFromCart(${item.id})">✕</span>
+                    </div>
+                    <div>₦${itemTotal.toFixed(2)}</div>
+                `;
+                checkoutItems.appendChild(div);
+            });
+            
+            // Calculate shipping
+            const selectedShipping = document.querySelector('input[name="shipping"]:checked').value;
+            const shipping = shippingCosts[selectedShipping];
+            
+            // Calculate tax (7.5% of subtotal)
+            const tax = subtotal * 0.075;
+            
+            // Calculate total
+            const total = subtotal + shipping + tax;
+            
+            // Update amounts
+            subtotalAmount.textContent = `₦${subtotal.toFixed(2)}`;
+            shippingAmount.textContent = `₦${shipping.toFixed(2)}`;
+            taxAmount.textContent = `₦${tax.toFixed(2)}`;
+            totalAmount.textContent = `₦${total.toFixed(2)}`;
+        }
+        
+        // Event Listeners
+        favoritesBtn.addEventListener('click', () => {
+            productsPage.classList.remove('active');
+            favoritesPage.classList.add('active');
+            checkoutPage.classList.remove('active');
+            displayFavorites();
+        });
+        
+        cartBtn.addEventListener('click', () => {
+            productsPage.classList.remove('active');
+            favoritesPage.classList.remove('active');
+            checkoutPage.classList.add('active');
+            displayCheckoutItems();
+        });
+        
+        filterBtn.addEventListener('click', () => {
+            filterModal.style.display = 'flex';
+        });
+        
+        homeLink.addEventListener('click', (e) => {
+            // e.preventDefault();
+            productsPage.classList.add('active');
+            favoritesPage.classList.remove('active');
+            checkoutPage.classList.remove('active');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            productsPage.classList.add('active');
+            favoritesPage.classList.remove('active');
+            checkoutPage.classList.remove('active');
+        });
+        
+        placeOrder.addEventListener('click', () => {
+            // Validate form
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zipCode = document.getElementById('zipCode').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardName = document.getElementById('cardName').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            
+            if (!fullName || !email || !address || !city || !zipCode || !cardNumber || !cardName || !expiryDate || !cvv) {
+                showNotification('Please fill out all required fields.');
+                return;
+            }
+            
+            if (cart.length === 0) {
+                showNotification('Your cart is empty.');
+                return;
+            }
+            
+            // Process order (in a real app, this would send data to a server)
+            showNotification('Order placed successfully!');
+            
+            // Clear cart
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateBadgeCounts();
+            
+            // Return to products page
+            productsPage.classList.add('active');
+            checkoutPage.classList.remove('active');
+        });
+        
+        closeFilter.addEventListener('click', () => {
+            filterModal.style.display = 'none';
+        });
+        
+        // Update price range display
+        priceFilter.addEventListener('input', () => {
+            const maxPrice = priceFilter.value;
+            priceValue.textContent = `₦0 - ₦${(maxPrice * 500).toLocaleString()}`;
+        });
+        
+        // Apply filters
+        applyFilters.addEventListener('click', () => {
+            currentFilters = {
+                category: categoryFilter.value,
+                price: parseFloat(priceFilter.value),
+                rating: parseFloat(ratingFilter.value),
+                sort: sortBy.value
+            };
+            
+            applyCurrentFilters();
+            filterModal.style.display = 'none';
+        });
+        
+        // Reset filters
+        resetFilters.addEventListener('click', () => {
+            categoryFilter.value = 'all';
+            priceFilter.value = 1000;
+            priceValue.textContent = '₦0 - ₦500,000';
+            ratingFilter.value = '0';
+            sortBy.value = 'default';
+            
+            currentFilters = {
+                category: 'all',
+                price: 1000,
+                rating: 0,
+                sort: 'default'
+            };
+            
+            applyCurrentFilters();
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                applyCurrentFilters();
+                return;
+            }
+            
+            const filteredProducts = products.filter(product => 
+                product.title.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm)
+            );
+            
+            displayProducts(filteredProducts);
+        });
+        
+        // Shipping option change
+        shippingOptions.forEach(option => {
+            option.addEventListener('change', () => {
+                // Update selected styling
+                document.querySelectorAll('.shipping-option').forEach(el => {
+                    el.classList.remove('selected');
+                });
+                option.closest('.shipping-option').classList.add('selected');
+                
+                // Update totals
+                displayCheckoutItems();
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === filterModal) {
+                filterModal.style.display = 'none';
+            }
+        });
+        
+        // Initialize
         fetchData();
     </script>
 </body>

@@ -9,13 +9,16 @@
 <body style="font-family: 'Montserrat', sans-serif;">
     <!-- the header and nav bar -->
     <section id="index">
-        <header class="header">
+        <main class="headery">
             <a class="logo" href="index.html">S C A P E</a>
             <nav class="navbar">
-                <a title="cart" href="#"><img src="cart2.png" alt="cart" height="40vh"></a>
+                <button style="border: none; background-color: transparent;" title="carts" type="button" class="cartbtn" id="cartBtn">
+                    <a title="cart" href="product.html"><img src="cart2.png" alt="cart" height="40vh"></a>
+                    <span class="count-badge" id="cartCount">0</span>
+                </button>
                 <ul class="nav-links">
                     <a href="#index">Home</a>
-                    <a href="#product">Product</a>
+                    <a href="product.html">Product</a>
                     <a href="about.html">About</a>
                     <a href="#contacts">Contact</a> 
                 </ul> 
@@ -25,7 +28,7 @@
                 <span></span>
                 <span></span>
             </div>
-        </header>
+        </main>
         <!-- this is the hero section -->
         <div class="hero">
             <h1>Welcome to SCAPE</h1>
@@ -35,12 +38,6 @@
             </i></p>
             <a href="login.html" class="chkout">GET STARTED</a>
         </div>
-        <!-- services and product -->
-        <section id="product" class="proserv">
-            <h1>P R O D U C T</h1>
-            <h2>Scape can manually pick a perfect suit for you</h2>
-            <div class="data-containers" id="dataContainers"></div>
-        </section>
         <!-- the contact section -->
         <section id="contacts" class="contact">
             <h2>Contact us</h2> 
@@ -120,45 +117,6 @@
     </section>
 
     <script>
-        // Function to fetch data from the API
-        async function fetchData() {
-            const apiUrl = 'https://fakestoreapi.com/products';
-            const dataContainer = document.getElementById('dataContainers');
-
-            try {
-                // Clear previous data
-                dataContainer.innerHTML = '<img class="prodimg" src="./icons8-loading (1).gif">';
-
-                // Fetch data from the API
-                const response = await fetch(apiUrl);
-
-                // Check if the response is successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                // Parse the JSON data
-                const data = await response.json();
-
-                // Clear the loading message
-                dataContainer.innerHTML = '';
-
-                // Display the data on the webpage
-                data.slice(0, 4).forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'data-items';
-                    div.innerHTML = 
-                       `<img src="${item.image}" alt="${item.title}">
-                        <article>${item.title}</article>`
-                        dataContainer.appendChild(div);
-                });
-            } catch (error) {
-                // Handle errors
-                dataContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
-            }
-        }
-        fetchData();
-
         const navLinks = document.querySelector('.nav-links');
         function toggleMenu() {
         navLinks.classList.toggle('active');
