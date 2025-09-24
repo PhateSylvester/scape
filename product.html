@@ -359,24 +359,26 @@
             
             productsToDisplay.forEach(item => {
                 const isFavorite = favorites.some(fav => fav.id === item.id);
-                const div = document.createElement('div');
-                div.className = 'data-item';
-                div.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
-                    <h3>${item.title}</h3>
-                    <p class="price">Price: ₦${(item.price * 20).toFixed(2)}</p>
+                const productCard = document.createElement('div');
+                productCard.className = 'data-item';
+                productCard.innerHTML = `
+                    <a href="product-detail-page.html?id=${item.id}" class="product-link" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; width: 100%; align-items: center;">
+                        <img src="${item.image}" alt="${item.title}">
+                        <h3>${item.title}</h3>
+                        <p class="price" style="margin-top: auto;">Price: ₦${(item.price * 500).toFixed(2)}</p>
+                    </a>
                     <div class="item-actions">
-                        <button class="fav-btn ${isFavorite ? 'active' : ''}" data-id="${item.id}">
-                            ${isFavorite ? '❤️' : '♡'}
-                        </button>
+                        <button class="fav-btn ${isFavorite ? 'active' : ''}" data-id="${item.id}">${isFavorite ? '❤️' : '♡'}</button>
                         <button class="cart-btn" data-id="${item.id}">Add to Cart</button>
-                    </div>`
-                dataContainer.appendChild(div);
+                    </div>
+                `;
+                dataContainer.appendChild(productCard);
             });
             
             // Add event listeners to the buttons
             document.querySelectorAll('.fav-btn').forEach(button => {
                 button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent navigating to detail page
                     const productId = parseInt(e.target.getAttribute('data-id'));
                     toggleFavorite(productId);
                 });
@@ -384,6 +386,7 @@
             
             document.querySelectorAll('.cart-btn').forEach(button => {
                 button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent navigating to detail page
                     const productId = parseInt(e.target.getAttribute('data-id'));
                     addToCart(productId);
                 });
