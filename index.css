@@ -1640,6 +1640,7 @@ grid-template-columns: repeat(3, 1fr);
         display: flex;
         flex-direction: column;
         gap: 20px;
+        height: auto;
     }
     .termdiv input {
         margin-left: 5px;
