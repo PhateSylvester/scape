@@ -16,17 +16,17 @@
                     <a title="cart" href="product.html"><img src="cart2.png" alt="cart" height="40vh"></a>
                 </button>
                 <ul class="nav-links">
-                    <a href="#index">Home</a>
-                    <a href="product.html">Product</a>
-                    <a href="about.html">About</a>
-                    <a href="#contacts">Contact</a> 
+                    <a href="#index" class="navlk">Home</a>
+                    <a href="product.html" class="navlk">Product</a>
+                    <a href="about.html" class="navlk">About</a>
+                    <a href="#contacts" class="navlk">Contact</a> 
                 </ul> 
+                <div class="toggle-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
-            <div class="toggle-btn" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </main>
         <!-- this is the hero section -->
         <div class="hero">
@@ -116,10 +116,21 @@
     </section>
 
     <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
         const navLinks = document.querySelector('.nav-links');
-        function toggleMenu() {
-        navLinks.classList.toggle('active');
-    }
+        const navLink = document.querySelectorAll('.navlk');
+
+            toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+        });
+
+            navLink.forEach(link => {
+            link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            toggleBtn.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
