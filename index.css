@@ -1395,7 +1395,7 @@ grid-template-columns: repeat(3, 1fr);
         top: 100px;
         right: 0;
         width: 50%;
-        height: 22vh;
+        height: 25vh;
         background: var(--secondary-color);
         flex-direction: column;
         align-items: center;
@@ -1626,7 +1626,7 @@ grid-template-columns: repeat(3, 1fr);
         font-size: 1rem;
     }
 }
-@media (max-width: 360px) {
+@media (max-width: 380px) {
     .signcon {
         display: none;
     }
@@ -1640,6 +1640,9 @@ grid-template-columns: repeat(3, 1fr);
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+    .termdiv input {
+        margin-left: 5px;
     }
     .join {
         /* width: 10%; */
