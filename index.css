@@ -1288,7 +1288,10 @@ grid-template-columns: repeat(3, 1fr);
     }
     .allcon {
         display: none;
-    } 
+    }
+    hr {
+        display: none;
+    }
     .contact {
         display: flex;
         flex-direction: column;
@@ -1574,6 +1577,9 @@ grid-template-columns: repeat(3, 1fr);
     display: grid;
     grid-template-columns: 1fr;
     }
+    .linkcon p {
+        font-size: 1rem;
+    }
 }
 @media (max-width: 480px) {
     .trddiv {
@@ -1588,5 +1594,61 @@ grid-template-columns: repeat(3, 1fr);
     }
     .checkout-actions button {
         width: 100%;
+    }
+    .linkcon p {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 360px) {
+    .signcon {
+        display: none;
+    }
+    .signform {
+        width: 100%;
+        font-size: 15px;
+        position: relative;
+        top: 50px;
+    }
+    .signsection {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .join {
+        /* width: 10%; */
+        font-size: 1.5rem;
+    }
+    .formdiv label {
+        font-size: 1.15rem;
+        margin-left: 20px;
+    }
+    .formdiv input {
+        padding: 7px;
+        width: 90%;
+    }
+    .logdivs h1 {
+        font-size: 1.7rem;
+    }
+    .dash {
+        font-size: 1rem;
+    }
+    .me {
+        margin: 0 158px 0 0;
+    }
+    .formbtn {
+        margin: 0 100px 0 0;
+    }
+    .formbtn button {
+        padding: 6px 20px;
+        font-size: 1rem;
+    }
+    .divconts p {
+        font-size: 1rem;
+    }
+    .register {
+        margin-top: 20px;
+    }
+    .linkcon p {
+        font-size: 1rem;
     }
 }
